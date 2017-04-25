@@ -1,7 +1,10 @@
 from flask import Flask
 from flask import request
 
-import query
+from query import *
+
+player1 = Player()
+my_map = Map()
 
 app = Flask(__name__)
 
@@ -11,7 +14,8 @@ def home():
 
 @app.route("/q/<q>")
 def text_query(q):
-    return query.parse_query(q, None, None, None)
+    #return query.parse_query(q, None, None, None)
+    return game(player1, my_map)
 
 @app.route("/q", methods=["POST"])
 def text_query_post():
@@ -19,11 +23,13 @@ def text_query_post():
     location = request.form["l"]
     timestamp = request.form["t"]
     session_token = request.form["session_token"]
-    return query.parse_query(query_text, location, timestamp, session_token)
+    return game(player1, my_map)
+    #return query.parse_query(query_text, location, timestamp, session_token)
 
 @app.route("/vq", methods=["POST"])
 def voice_query_post():
-    return query.parse_voice(request.form)
+    return game(player1, my_map)
+    #return query.parse_voice(request.form)
 
 if __name__ == '__main__':
     app.run()

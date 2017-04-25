@@ -7,7 +7,7 @@ class Player(object):
     base_attack = 3
 
     def __init__(self):
-        pass
+        return
 
 
 class Entity(object):
@@ -19,6 +19,7 @@ class Entity(object):
         self.name = name
         self.description = description
         self.attributes = attribs
+        return
 
 
 class Tile(object):
@@ -33,9 +34,11 @@ class Tile(object):
 
     def set_description(self, description):
         self.tile_description = description
+        return
 
     def get_description(self):
         print(self.tile_description)
+        return
 
 
 class Map(object):
@@ -43,12 +46,8 @@ class Map(object):
 
     def __init__(self):
         self.tiles.append(Tile(0, "A room of index " + str(0)))
+        return
 
 
 def game(player, game_map):
-    print(game_map.tiles[0].get_description())
-    return
-
-player1 = Player()
-my_map = Map()
-game(player1, my_map)
+    return game_map.tiles[0].get_description()
