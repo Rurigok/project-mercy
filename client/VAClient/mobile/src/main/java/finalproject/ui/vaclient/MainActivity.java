@@ -63,7 +63,6 @@ import java.util.Random;
 import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton micButton;
     ImageButton send;
     EditText txt;
     ListView messagesContainer;
@@ -132,30 +131,6 @@ public class MainActivity extends AppCompatActivity {
                         REQUEST_RECORD_AUDIO_PERMISSION);
             }
         }
-        //Hide mic button and instruction view for demo purposes
-        /*microphone = (ImageButton)findViewById(R.id.micButton);
-        microphone.setVisibility(View.VISIBLE);
-        TextView instruct = (TextView)findViewById(R.id.textView);
-        instruct.setVisibility(View.INVISIBLE);
-
-        //Set onTouch listener for mic button
-        microphone=(ImageButton)findViewById(R.id.micButton);
-        microphone.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event){
-                    /*switch(event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        Log.i(TAG, "Begin recording");
-                        startRecord();
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        Log.i(TAG, "End recording");
-                        stopRecord();
-                        break;
-                }
-                return true;
-            }
-        });*/
 
         txt = (EditText)findViewById(R.id.query);
         txt.setOnTouchListener(new View.OnTouchListener() {
@@ -212,37 +187,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String msg = txt.getText().toString();
                 submitMessage(msg, adapter);
-
-//                if(TextUtils.isEmpty(msg)){
-//                    return;
-//                }
-//                String temp = msg;
-//                temp += ("\n\n" + new SimpleDateFormat("hh:mm a").format(new Date()));
-//                ChatMessage usrInput = new ChatMessage();
-//                ChatMessage tempMsg = new ChatMessage();
-//                usrInput.setMe(false);
-//                tempMsg.setMessage(temp);
-//                usrInput.setLocation("San Antonio"); //Placeholder val for now...
-//                //TODO: Implement GPS functionality and replace this placeholder w/coordinates
-//                txt.setText("");
-//                adapter.add(tempMsg);
-//                adapter.notifyDataSetChanged();
-//                scroll();
-//                usrInput.setMessage(msg);
-//                new SendTask(adapter).execute(usrInput);
-//
-////                ChatMessage automaticResponse = new ChatMessage(true, "The sending of queries is not yet supported!");
-////                adapter.add(automaticResponse);
-//                adapter.notifyDataSetChanged();
-//                scroll();
-//                Toast.makeText(getApplicationContext(), "The sending of queries is not yet supported!", Toast.LENGTH_SHORT).show();
-
-
-//                ChatMessage automaticResponse2 = new ChatMessage(true, "hi");
-//                adapter.add(automaticResponse2);
-//                adapter.notifyDataSetChanged();
-//                scroll();
-
             }
         });
         /////
@@ -263,8 +207,6 @@ public class MainActivity extends AppCompatActivity {
         }catch (ActivityNotFoundException a){
             Toast.makeText(MainActivity.this, "Sorry! Your device doesn't support speech language", Toast.LENGTH_LONG).show();
         }
-
-
     }
 
     public void onActivityResult(int request_code, int result_code, Intent i){
@@ -282,13 +224,7 @@ public class MainActivity extends AppCompatActivity {
             }
             break;
         }
-
-
-
-
     }
-
-
 
     /////////////////////////////////////////end voice stuff/////////////
 

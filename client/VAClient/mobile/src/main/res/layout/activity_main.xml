@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent_view"
+    android:windowSoftInputMode="adjustPan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="false"
@@ -13,19 +14,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:visibility="visible"
     tools:context="finalproject.ui.vaclient.MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/query"
-        android:layout_alignEnd="@+id/query"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/query"
-        android:visibility="invisible"
-        android:text="@string/Instruction"
-        android:textSize="14sp" />
 
 
     <ImageButton
@@ -47,7 +35,8 @@
         android:inputType="text"
         android:imeOptions="actionSend"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/micButton" />
 
     <ListView
         android:id="@+id/chatView"
@@ -70,10 +59,10 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_toEndOf="@+id/textView"
+        android:layout_toEndOf="@+id/query"
         android:visibility="visible"
         app:srcCompat="@android:drawable/ic_menu_send"
-        android:layout_toRightOf="@+id/textView" />
+        android:layout_toRightOf="@+id/query" />
 
     <RelativeLayout
         android:id="@+id/hud"
@@ -81,37 +70,69 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/chatView"
         android:layout_centerHorizontal="true"
-        android:background="@color/common_plus_signin_btn_text_dark_disabled">
+        android:background="@color/common_google_signin_btn_text_dark_default">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/h3_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_below="@+id/textView2"
-            android:layout_toLeftOf="@+id/imageView2"
-            android:layout_toStartOf="@+id/imageView2"
+            android:layout_marginEnd="21dp"
+            android:layout_marginRight="21dp"
+            android:layout_toLeftOf="@+id/h1_empty"
+            android:layout_toStartOf="@+id/h1_empty"
             app:srcCompat="@drawable/heart_empty" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/h3_full"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/heart_empty"
             android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/imageView4"
-            android:layout_toStartOf="@+id/imageView4"
-            android:layout_below="@+id/textView2" />
+            android:layout_marginEnd="21dp"
+            android:layout_marginRight="21dp"
+            android:layout_toLeftOf="@+id/h1_empty"
+            android:layout_toStartOf="@+id/h1_empty"
+            app:srcCompat="@drawable/heart" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/h2_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/heart_empty"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
+            android:layout_marginEnd="21dp"
+            android:layout_marginRight="21dp"
+            android:layout_toLeftOf="@+id/h3_empty"
+            android:layout_toStartOf="@+id/h3_empty"
+            app:srcCompat="@drawable/heart_empty" />
+
+        <ImageView
+            android:id="@+id/h2_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="21dp"
+            android:layout_marginRight="21dp"
+            android:layout_toLeftOf="@+id/h3_empty"
+            android:layout_toStartOf="@+id/h3_empty"
+            app:srcCompat="@drawable/heart" />
+
+        <ImageView
+            android:id="@+id/h1_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_below="@+id/textView2" />
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/heart_empty" />
+
+        <ImageView
+            android:id="@+id/h1_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/heart" />
 
         <TextView
             android:id="@+id/textView2"
@@ -127,5 +148,19 @@
             android:textStyle="bold" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/micButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/micButton"
+        android:layout_toLeftOf="@+id/query"
+        android:text="Bob"
+        android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
