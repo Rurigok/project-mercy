@@ -35,7 +35,6 @@
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/query"
         android:layout_toStartOf="@+id/query"
-        android:background="@drawable/roundbutton"
         android:onClick="onMicClick"
         android:src="@drawable/ic_keyboard_voice_black_36dp"
         android:visibility="visible" />
@@ -53,7 +52,7 @@
     <ListView
         android:id="@+id/chatView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="350dp"
         android:layout_above="@+id/query"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -75,5 +74,58 @@
         android:visibility="visible"
         app:srcCompat="@android:drawable/ic_menu_send"
         android:layout_toRightOf="@+id/textView" />
+
+    <RelativeLayout
+        android:id="@+id/hud"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/chatView"
+        android:layout_centerHorizontal="true"
+        android:background="@color/common_plus_signin_btn_text_dark_disabled">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/textView2"
+            android:layout_toLeftOf="@+id/imageView2"
+            android:layout_toStartOf="@+id/imageView2"
+            app:srcCompat="@drawable/heart_empty" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/heart_empty"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/imageView4"
+            android:layout_toStartOf="@+id/imageView4"
+            android:layout_below="@+id/textView2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/heart_empty"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Health"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
