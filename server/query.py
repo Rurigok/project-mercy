@@ -1,56 +1,32 @@
-import json
-import conversation
-from commands import KEYWORDS, PHRASES
-from message import Message
-from nltk.metrics.distance import edit_distance
+#Written by Edward Mondragon
 
-sessions = {}
+class Player(object):
+    health = 3
+    base_attack = 3
+    def __init__(self):
+        pass
 
-def parse_query(raw_text, location, timestamp, session_token):
+class Entity(object):
+    name = ""
+    description = ""
+    attributes = []
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
 
-    # Handle session
-    if session_token not in sessions:
-        sessions[session_token] = list()
+class Tile(object):
+    tileID = -1
+    tileDescription = ""
+    entities = []
+    neighboringIDs = []
+    def __init__(self, id, description):
+        self.tileID = id
+        self.tileDescription = description
 
-    session_history = sessions[session_token]
+class Map(object):
+    tiles = []
+    def __init__(self):
+        tiles.append(Tile());
 
-    response = {} # build response dict (to be returned as JSON)
-    message = Message(raw_text) # meta message object for logging
-
-    print("input query:", raw_text)
-    print("session token:", session_token)
-
-    min_dist = 9999
-    handled = False
-
-    for phrase in PHRASES:
-        dist = edit_distance(raw_text.lower(), phrase)
-        #print("Comparing: ", raw_text, key, "=", dist)
-        if dist < min_dist:
-            min_dist = dist
-            command_func = PHRASES[phrase]
-            handled = True
-            message.set_similarity(dist, phrase)
-
-    if not handled:
-        response_text = "Sorry, I didn't quite understand that!"
-    else:
-        if command_func == conversation.analyze:
-            response_text = command_func(session_history)
-        else:
-            response_text = command_func()
-
-    response["text"] = response_text
-    response["command"] = None
-
-    # Store this message into session history
-    message.server_response = response_text
-    message.triggered_func = str(command_func)
-    session_history.append(message)
-
-    # Convert response dict into JSON string and return
-    response_str = json.dumps(response)
-    return response_str
-
-def parse_voice(form):
-    pass
+def game(player, map):
+    return
