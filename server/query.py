@@ -3,11 +3,14 @@
 #Written by Edward Mondragon
 
 class Player(object):
+    name = ""
     health = 5
     base_attack = 3
+    inventory = []
 
-    def __init__(self):
-        return
+    def __init__(self, name):
+        self.name = name
+        pass
 
 
 class Entity(object):
@@ -19,7 +22,6 @@ class Entity(object):
         self.name = name
         self.description = description
         self.attributes = attribs
-        return
 
 
 class Tile(object):
@@ -32,22 +34,13 @@ class Tile(object):
         self.tile_id = tile_id
         self.tile_description = description
 
-    def set_description(self, description):
-        self.tile_description = description
-        return
-
-    def get_description(self):
-        print(self.tile_description)
-        return
-
 
 class Map(object):
     tiles = []
 
     def __init__(self):
         self.tiles.append(Tile(0, "A room of index " + str(0)))
-        return
 
 
 def game(player, game_map):
-    return game_map.tiles[0].get_description()
+    return game_map.tiles[0].tile_description

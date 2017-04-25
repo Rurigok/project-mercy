@@ -2,9 +2,11 @@ from flask import Flask
 from flask import request
 
 from query import *
+from HUD import *
 
-player1 = Player()
+player1 = Player("Bob")
 my_map = Map()
+hud_string = create_hud(player1)
 
 app = Flask(__name__)
 
